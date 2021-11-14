@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import ToDoComponent from './components/to-do-component';
 
 const MyComponent = function() {
-    return <h1>Hello Wonderful world!
+    return <div>
+        <h1>Hello Wonderful world!</h1>
         <br/>
-        <ToDoComponent />   
-    </h1>
+        <ToDoComponent name='Vaibhav'/>   
+    </div>
+    
 }
 
 ReactDOM.render(
