@@ -28,7 +28,5 @@ class TextAreacomponent extends React.Component {
     }
 }
 
-
-
 export default TextAreacomponent;
  
