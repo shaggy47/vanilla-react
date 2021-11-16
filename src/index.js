@@ -15,30 +15,30 @@ const MyComponent = function () {
             sales: '200 M'
         },
         {
-            title:'A Tale of Two cities',
+            title:'Nightingale',
             author: 'Charles Dickens',
             language: 'English',
-            published: '1897',
+            published: '1898',
             sales: '1M'
         },
         {
-            title:'A Tale of Two cities',
-            author: 'Charles Dickens',
+            title:'1984',
+            author: 'Arthur Dickens',
             language: 'English',
-            published: '1897',
+            published: '1900',
             sales: '1M'
         },
         {
-            title:'A Tale of Two cities',
-            author: 'Charles Dickens',
+            title:'Murder on the orient express',
+            author: 'Angus Dickens',
             language: 'English',
             published: '1897',
             sales: '1M'
         },{
-            title:'A Tale of Two cities',
-            author: 'Charles Dickens',
+            title:'Zion road',
+            author: 'Titus Dickens',
             language: 'English',
-            published: '1897',
+            published: '1901',
             sales: '1M'
         }
     ]
