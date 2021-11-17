@@ -1,2 +1,2 @@
 # vanilla-react
-Seed project with webpack and vanilla JS
+Seed project with webpack and vanilla JS and React
