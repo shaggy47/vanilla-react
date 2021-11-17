@@ -4,15 +4,16 @@ class TableComponent extends React.Component {
 
     constructor(props) {
         super();
-        this.state = { data: props.initialData };
+        this.state = { data: props.initialData, edit: null };
         this.sort = this.sort.bind(this);
         this.clone = this.clone.bind(this);
+        this.showEditor = this.showEditor.bind(this);
     }
 
     sort(e) {
         const column = e.target.cellIndex;
         const data = this.clone(this.state.data);
-        const keys= Object.keys(data[0]);
+        const keys = Object.keys(data[0]);
 
         data.sort((a, b) => {
             if (a[keys[column]] === b[keys[column]]) {
@@ -27,6 +28,19 @@ class TableComponent extends React.Component {
 
     clone(o) {
         return JSON.parse(JSON.stringify(o));
+    }
+
+    showEditor(e) {
+        let columnName = String(this.props.headers[e.target.cellIndex]).toLowerCase();
+        console.log(columnName);
+        this.setState({
+            edit: {
+                row: parseInt(e.target.parentNode.dataset.row, 10),
+                column: columnName
+            }
+        });
+
+        console.log(this.state);
     }
 
     render() {
@@ -45,10 +59,10 @@ class TableComponent extends React.Component {
                     <thead onClick={this.sort}>
                         <tr>{headers}</tr>
                     </thead>
-                    <tbody>
+                    <tbody onDoubleClick={this.showEditor}>
                         {
                             this.state.data.map((row, index) => (
-                                <tr key={index}>
+                                <tr data-row={index} key={index}>
                                     <td>{row.title}</td>
                                     <td>{row.author}</td>
                                     <td>{row.language}</td>

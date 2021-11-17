@@ -4,16 +4,16 @@ class ToDoComponent extends React.Component {
     constructor() {
         super();
         this.addToList = this.addToList.bind(this);
-        this.state = { listItems: ['Abc', 'DEF'] };
+        this.removeLast = this.removeLast.bind(this);
+        this.state = { listItems: [] };
     }
 
     render() {
-        const list = []; 
-        this.state.listItems.map((item,index)=>{
+        const list = [];
+        this.state.listItems.map((item, index) => {
             list.push(<li key={index}>{item}</li>);
         });
         
-        console.log(list);
         return (
             <div>
                 <span>{this.props.name} this is your to do list</span>
@@ -24,6 +24,7 @@ class ToDoComponent extends React.Component {
                 <p>Click here to add another task</p>
                 <input type="text" id="todoItem"></input>
                 <button id="btn" onClick={this.addToList}>Add</button>
+                <button id="btn" onClick={this.removeLast}>Remove</button>
             </div>
         )
     }
@@ -32,6 +33,11 @@ class ToDoComponent extends React.Component {
         const list = this.state.listItems;
         const todoItem = document.getElementById('todoItem');
         list.push(todoItem.value);
+        this.setState({ listItems: list });
+    }
+
+    removeLast() {
+        const list = this.state.listItems.slice(0, this.state.listItems.length - 1);
         this.setState({ listItems: list });
     }
 
